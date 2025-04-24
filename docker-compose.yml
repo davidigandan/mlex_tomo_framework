@@ -42,7 +42,7 @@ services:
       - TILED_SINGLE_USER_API_KEY=${TILED_SINGLE_USER_API_KEY}
     volumes:
       - ./tiled/deploy:/deploy
-      - ./data/tiled_storage:/tiled_storage
+      - /dls/staging/dls/k11/data/2024/mg37376-1/processing/20240311120527_37086:/tiled_storage
     depends_on:
       - tiled_db
     networks:
@@ -57,34 +57,35 @@ services:
       - POSTGRES_DB=${TILED_DB_NAME}
     volumes:
       - ./data/tiled_db:/var/lib/postgresql/data:rw
-      - ./data/tiled_storage:/tiled_storage
+      # - ./data/tiled_storage:/tiled_storage
     restart: unless-stopped
     networks:
       mle_net:
 
 
-  tiled_ingest:
-    build:
-      context: ./mlex_tiled_ingest
-    environment:
-      - TILED_DB_USER=${TILED_DB_USER}
-      - TILED_DB_PW=${TILED_DB_PW}
-      - TILED_DB_NAME=${TILED_DB_NAME}
-      - TILED_DB_SERVER=${TILED_DB_SERVER}
-      - TILED_INGEST_TILED_CONFIG_PATH=${TILED_INGEST_TILED_CONFIG_PATH}
-      - TILED_INGEST_RMQ_HOST=${TILED_INGEST_RMQ_HOST}
-      - TILED_INGEST_RMQ_USER=${TILED_INGEST_RMQ_USER}
-      - TILED_INGEST_RMQ_PW=${TILED_INGEST_RMQ_PW}
+  # tiled_ingest:
+  #   build:
+  #     context: ./mlex_tiled_ingest
+  #   environment:
+  #     - TILED_DB_USER=${TILED_DB_USER}
+  #     - TILED_DB_PW=${TILED_DB_PW}
+  #     - TILED_DB_NAME=${TILED_DB_NAME}
+  #     - TILED_DB_SERVER=${TILED_DB_SERVER}
+  #     - TILED_INGEST_TILED_CONFIG_PATH=${TILED_INGEST_TILED_CONFIG_PATH}
+  #     - TILED_INGEST_RMQ_HOST=${TILED_INGEST_RMQ_HOST}
+  #     - TILED_INGEST_RMQ_USER=${TILED_INGEST_RMQ_USER}
+  #     - TILED_INGEST_RMQ_PW=${TILED_INGEST_RMQ_PW}
 
-    volumes:
-      - ./mlex_tiled_ingest:/app
-      - ./tiled/deploy:/deploy
-      - ./data/tiled_storage:/tiled_storage
+  #   volumes:
+  #     - ./mlex_tiled_ingest:/app
+  #     - ./tiled/deploy:/deploy
+  #     - ./data/tiled_storage:/tiled_storage
 
   mlex_segmentation:
     image: ghcr.io/mlexchange/mlex_highres_segmentation:main
+    command: python app.py
     environment:
-      - DATA_TILED_URI=http://tiled:8000/api/v1/metadata/recons
+      - DATA_TILED_URI=http://tiled:8000/api/v1/metadata/
       - DATA_TILED_API_KEY=${TILED_API_KEY}
       - MASK_TILED_URI=http://tiled:8000/
       - MASK_TILED_API_KEY=${TILED_API_KEY}
@@ -96,6 +97,13 @@ services:
       - PREFECT_API_URL=http://prefect:4200/api
       - FLOW_NAME=${FLOW_NAME}
       - TIMEZONE=${TIMEZONE}
+      - FLOW_TYPE=${FLOW_TYPE}
+      - IMAGE_NAME=${IMAGE_NAME}
+      - IMAGE_TAG=${IMAGE_TAG}
+      - MOUNT_RESULTS_DIR=${RESULTS_DIR}
+      - CONTAINER_NETWORK=${CONTAINER_NETWORK}
+      - TRAIN_SCRIPT_PATH=${TRAIN_SCRIPT_PATH}
+      - SEGMENT_SCRIPT_PATH=${SEGMENT_SCRIPT_PATH}
     ports:
       - 8075:8075
     # depends_on:
