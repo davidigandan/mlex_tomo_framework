@@ -3,7 +3,7 @@
 
 ### Table of Contents  
 - [Overview](#Overview)
-- [The Workflow](#The Workflow)
+- [Workflow](#Workflow)
 - [Prerequisites](#Prerequisites)
 - [Environment Setup & Deployment](#Environment Setup and Deployment)  
 - [Common Issues & Troubleshooting](#Common Issues & Troubleshooting)
@@ -19,7 +19,7 @@ The purpose of this document is to assist in the initial deployment and use of t
 6. **Tiled Ingester**: Consumes ActiveMQ messages and notifies Tiled about new sets of image data  
 7. **Prefect Worker**: Tasked by the prefect server to execute the train and inference jobs
 
-## The Workflow
+## Workflow
 - Lets see
 ### Prerequisites  
 - Container Engine: Podman  
