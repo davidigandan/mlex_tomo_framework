@@ -1,5 +1,5 @@
 
-# Deploying MLExchange Tomo-framework (mlex_tomo_framework
+# Deploying MLExchange Tomo-framework (mlex_tomo_framework)
 
 ### Table of Contents  
 - [Overview](#Overview)
