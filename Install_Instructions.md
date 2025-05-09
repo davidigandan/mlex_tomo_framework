@@ -11,7 +11,7 @@
 ## Overview
 The purpose of this document is to assist in the initial deployment and use of the mlex_tomo_framework. This document provides instructions for deployment on Linux devices running podman as the container engine. While the software can run on other operating systems and container engine, it may require different settings from those spelled out here. [Mlex_tomo_framework](https://github.com/mlexchange/mlex_tomo_framework/tree/main) is a framework designed to simplify the deployment and use of the segmentation components of the broader MLExchange platform. It **excludes** the content registry, compute api and other services not necessary for image segmentation.The framework consists of 6 services working and communicating together:  
 
-1. **Segmentation web-app**: User-facing application for interacting with segmentation results. Allows users to view, initiate and manage segmentation jobs via a web based GUI.  
+1. [**Segmentation web-app**](https://github.com/mlexchange/mlex_highres_segmentation): User-facing application for interacting with segmentation results. Allows users to view, initiate and manage segmentation jobs via a web based GUI.  
 2. **Prefect Server**: Orchestrates train and inference workloads created by the user in the segmentation app.
 3. **PostgreSQL** database to support **prefect**: Stores metadata and state information for the server including details about flow runs and prefect server configuration data  
 4. **Tiled Server**: Serves and indexes image data for segmentation workflows.  
