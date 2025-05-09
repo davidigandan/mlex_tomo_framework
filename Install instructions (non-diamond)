@@ -6,11 +6,11 @@
 <h1 id="deploying-mlexchange-tomo-framework-mlex_tomo_framework">Deploying MLExchange Tomo-framework (mlex_tomo_framework)</h1>
 <h3 id="table-of-contents">Table of Contents</h3>
 <ul>
-<li>Overview</li>
-<li>The Workflow</li>
-<li>Prerequisites</li>
-<li>Environment Setup &amp; Deployment</li>
-<li>Common Issues &amp; Troubleshooting</li>
+<li><a href="##Overview">Overview</a></li>
+<li>[The Workflow](##The Workflow)</li>
+<li><a href="##Prerequisites">Prerequisites</a></li>
+<li>[Environment Setup &amp; Deployment](##Environment Setup and Deployment)</li>
+<li>[Common Issues &amp; Troubleshooting](##Common Issues &amp; Troubleshooting)</li>
 </ul>
 <h2 id="overview">Overview</h2>
 <p>The purpose of this document is to assist in the initial deployment and use of the mlex_tomo_framework. This document provides instructions for deployment on Linux devices running podman as the container engine. While the software can run on other operating systems and container engine, it may require different settings from those spelled out here. <a href="https://github.com/mlexchange/mlex_tomo_framework/tree/main">Mlex_tomo_framework</a> is a framework designed to simplify the deployment and use of the segmentation components of the broader MLExchange platform. It <strong>excludes</strong> the content registry, compute api and other services not necessary for image segmentation.The framework consists of 6 services working and communicating together:</p>
@@ -29,7 +29,8 @@
 <li>Docker-compose</li>
 <li>User permissions: Rootless</li>
 </ul>
-<h2 id="environment-setup--deployment-web-app-and-server-start-up">Environment Setup &amp; Deployment### Web-App and Server start up</h2>
+<h2 id="environment-setup-and-deployment">Environment Setup and Deployment</h2>
+<h3 id="web-app-and-server-start-up">Web-App and Server start up</h3>
 <ol>
 <li>Clone the <a href="https://github.com/mlexchange/mlex_tomo_framework">mlex_tomo_framework</a> repo.</li>
 <li>Ensure podman container engine and docker-compose are working on the system. Enter the following commands into the terminal:</li>
