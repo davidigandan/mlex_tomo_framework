@@ -5,8 +5,8 @@
 - [Overview](#Overview)
 - [Workflow](#Workflow)
 - [Prerequisites](#Prerequisites)
-- [Environment Setup & Deployment](#Environment Setup and Deployment)  
-- [Common Issues & Troubleshooting](#Common Issues & Troubleshooting)
+- [Setup-and-Deployment](#Setup-and-Deployment)  
+- [Common-Issues](#Common-Issues)
 
 ## Overview
 The purpose of this document is to assist in the initial deployment and use of the mlex_tomo_framework. This document provides instructions for deployment on Linux devices running podman as the container engine. While the software can run on other operating systems and container engine, it may require different settings from those spelled out here. [Mlex_tomo_framework](https://github.com/mlexchange/mlex_tomo_framework/tree/main) is a framework designed to simplify the deployment and use of the segmentation components of the broader MLExchange platform. It **excludes** the content registry, compute api and other services not necessary for image segmentation.The framework consists of 6 services working and communicating together:  
@@ -20,7 +20,7 @@ The purpose of this document is to assist in the initial deployment and use of t
 7. **Prefect Worker**: Tasked by the prefect server to execute the train and inference jobs
 
 ## Workflow
-- Lets see
+
 ### Prerequisites  
 - Container Engine: Podman  
 - Docker-compose  
