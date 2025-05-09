@@ -26,7 +26,7 @@ The purpose of this document is to assist in the initial deployment and use of t
 - Docker-compose  
 - User permissions: Rootless
 
-## Environment Setup and Deployment
+## Setup-and-Deployment
 
 ### Web-App and Server start up  
 1. Clone the [mlex_tomo_framework](https://github.com/mlexchange/mlex_tomo_framework) repo.  
@@ -118,6 +118,6 @@ process =  await run_process(cmd, stream_output=True)
 8. Run ```start_worker.sh```
 
 
-## Common Issues & Troubleshooting
+## Common-Issues
 
 You can rename the current file by clicking the file name in the navigation bar or by clicking the **Rename** button in the file explorer.
